@@ -5,6 +5,7 @@
     android:id="@+id/ConstraintLayoutAdd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF263"
     tools:context=".AddCards">
 
     <EditText
@@ -14,6 +15,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -28,6 +30,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -40,7 +43,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/bungee_shade"
         android:text="Front"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgAdd" />
@@ -50,7 +57,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:fontFamily="@font/bungee_shade"
         android:text="Back"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtFront" />
@@ -62,7 +73,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:text="Save/Exit"
-        android:textColor="#B81B1B"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +84,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="14dp"
         android:text="Another One"
-        android:textColor="#4CAF50"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDone" />
 
@@ -84,29 +95,33 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Title"
+        android:text="Title of the Flashcard"
+        android:textColor="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintEnd_toStartOf="@+id/txtDone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <ImageView
+        android:id="@+id/imgAdd"
+        android:layout_width="23dp"
+        android:layout_height="26dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtAddAnother"
+        app:layout_constraintTop_toTopOf="@+id/txtAddAnother"
+        app:srcCompat="@drawable/add" />
+
     <ImageView
         android:id="@+id/imgSave"
         android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_height="22dp"
         app:layout_constraintEnd_toStartOf="@+id/txtDone"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/edtAddTitle"
         app:layout_constraintTop_toTopOf="@+id/txtDone"
-        app:srcCompat="@android:drawable/ic_menu_save" />
-
-    <ImageView
-        android:id="@+id/imgAdd"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtAddAnother"
-        app:layout_constraintTop_toTopOf="@+id/txtAddAnother"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:srcCompat="@drawable/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
