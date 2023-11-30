@@ -5,7 +5,7 @@
     android:id="@+id/ConstraintLayoutAdd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF263"
+    android:background="@drawable/bg2"
     tools:context=".AddCards">
 
     <EditText
@@ -13,13 +13,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#000000"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/imgAdd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtBack" />
 
@@ -28,13 +29,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#000000"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/txtBack"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFront" />
 
@@ -42,27 +44,32 @@
         android:id="@+id/txtFront"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/bungee_shade"
         android:text="Front"
         android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtFront"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/edtAddTitle" />
 
     <TextView
         android:id="@+id/txtBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="157dp"
         android:fontFamily="@font/bungee_shade"
         android:text="Back"
         android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtBack"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtFront" />
 
@@ -70,58 +77,76 @@
         android:id="@+id/txtDone"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="134dp"
         android:text="Save/Exit"
         android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/imgSave"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddAnother" />
 
     <TextView
         android:id="@+id/txtAddAnother"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="127dp"
         android:text="Another One"
         android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtDone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDone" />
+        app:layout_constraintStart_toEndOf="@+id/imgAdd"
+        app:layout_constraintTop_toBottomOf="@+id/edtBack" />
+
+    <ImageView
+        android:id="@+id/imgAdd"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
+
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgSave"
+        app:layout_constraintEnd_toStartOf="@+id/txtAddAnother"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtBack"
+        app:srcCompat="@drawable/add" />
 
     <EditText
         android:id="@+id/edtAddTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="345dp"
+        android:layout_height="41dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="34dp"
         android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Title of the Flashcard"
         android:textColor="#000000"
+
         android:textColorLink="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/txtDone"
+        app:layout_constraintBottom_toTopOf="@+id/txtFront"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
-        android:id="@+id/imgAdd"
-        android:layout_width="23dp"
-        android:layout_height="26dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtAddAnother"
-        app:layout_constraintTop_toTopOf="@+id/txtAddAnother"
-        app:srcCompat="@drawable/add" />
-
-    <ImageView
         android:id="@+id/imgSave"
-        android:layout_width="20dp"
-        android:layout_height="22dp"
+        android:layout_width="34dp"
+        android:layout_height="37dp"
+
+        android:layout_marginStart="135dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="143dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/txtDone"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/edtAddTitle"
-        app:layout_constraintTop_toTopOf="@+id/txtDone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAdd"
         app:srcCompat="@drawable/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
