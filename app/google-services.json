@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "965507379701",
+    "project_id": "fir-3itfsantos",
+    "storage_bucket": "fir-3itfsantos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965507379701:android:36493d38c59347bb1530bc",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRjqjR1it1KolF7VS65f65_DyaUwBava0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

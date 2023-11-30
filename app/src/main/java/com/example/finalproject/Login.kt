@@ -22,30 +22,29 @@ class Login : AppCompatActivity() {
 
 
         btnLogin.setOnClickListener {
-            val email = edtEmail.text.toString().trim()
-            val pss = edtPassword.text.toString()
-
+            val Email = edtEmail.text.toString().trim()
+            val Password = edtPassword.text.toString()
 
             when {
-                email.isEmpty() -> {
+                Email.isEmpty() -> {
                     edtEmail.error = "Please enter an email."
                     edtEmail.requestFocus()
                     return@setOnClickListener
                 }
 
-                !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+                !Patterns.EMAIL_ADDRESS.matcher(Email).matches() -> {
                     edtEmail.error = "Enter a valid email."
                     edtEmail.requestFocus()
                     return@setOnClickListener
                 }
 
-                pss.isEmpty() -> {
+                Password.isEmpty() -> {
                     edtPassword.error = "Please enter a password."
                     edtPassword.requestFocus()
                     return@setOnClickListener
                 }
 
-                pss.length < 6 -> {
+                Password.length < 6 -> {
                     edtPassword.error = "Invalid password."
                     edtPassword.requestFocus()
                     return@setOnClickListener
