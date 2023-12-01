@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "965507379701",
-    "project_id": "fir-3itfsantos",
-    "storage_bucket": "fir-3itfsantos.appspot.com"
+    "project_number": "1044112617869",
+    "firebase_url": "https://finalproject-3964f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "finalproject-3964f",
+    "storage_bucket": "finalproject-3964f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:965507379701:android:36493d38c59347bb1530bc",
+        "mobilesdk_app_id": "1:1044112617869:android:ddae2e611a7a720e198dc4",
         "android_client_info": {
           "package_name": "com.example.finalproject"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCRjqjR1it1KolF7VS65f65_DyaUwBava0"
+          "current_key": "AIzaSyD0RF-K5OdWV9Q8YUqcqj41bs7JzqBN8NQ"
         }
       ],
       "services": {

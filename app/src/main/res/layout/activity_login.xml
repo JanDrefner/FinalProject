@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtFlashcardApp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtLoginEmail"
+            android:id="@+id/edtUsername"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Email"
