@@ -69,7 +69,6 @@ class Login : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 toastMsg(this, "Login Success!")
-                startActivity(Intent(this@Login, AddCards::class.java))
                 val userUID = mAuth.currentUser?.uid
 
                 userUID?.let { UID ->

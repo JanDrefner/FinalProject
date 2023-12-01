@@ -6,7 +6,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var rootRef : FirebaseDatabase
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         fun getCurrUser() : FirebaseUser?{
             mAuth = getmAuth()
             var user = mAuth.currentUser;
-            return user
+            return user;
         }
     }
 }
