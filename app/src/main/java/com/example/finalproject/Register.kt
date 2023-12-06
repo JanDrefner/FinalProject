@@ -16,7 +16,7 @@ import org.w3c.dom.Text
 class Register : AppCompatActivity() {
 
     lateinit var databaseReference: DatabaseReference
-    lateinit var mAuth: FirebaseAuth
+    lateinit var mAuth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)

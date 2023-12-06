@@ -1,11 +1,23 @@
 package com.example.finalproject
-class Deck {
-    var title: String = ""
-    var deckId : String = ""
-    var author : String = ""
-    var Uid : String = ""
-    var cards: List<List<String>> = ArrayList()
+
+import java.io.Serializable
+
+data class Deck(
+    var title: String = "",
+    var deckId: String = "",
+    var author: String = "",
+    var uId: String = "",
+    var cards: MutableList<List<String>>? = ArrayList()
+) : Serializable  {
+
+    constructor() : this("","","","",ArrayList())
 }
+
+
+
+
+
+
 
 
 

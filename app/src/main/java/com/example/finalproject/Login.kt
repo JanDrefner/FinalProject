@@ -93,8 +93,8 @@ class Login : AppCompatActivity() {
                     if (user != null) {
                         toastMsg(applicationContext, "Welcome Back, ${user.email}!")
 
-                        Log.i("Redirect_Debug", "Redirecting to AddCards activity")
-                        startActivity(Intent(this@Login, AddCards::class.java))
+                        Log.i("Redirect_Debug", "Redirecting to PublicDecks activity")
+                        startActivity(Intent(this@Login, PublicDecks::class.java))
                     } else {
                         toastMsg(applicationContext, "New User Welcome!")
 
