@@ -1,16 +1,17 @@
 package com.example.finalproject
 
+import kotlinx.serialization.SerialName
 import java.io.Serializable
 
+@kotlinx.serialization.Serializable
 data class Deck(
-    var title: String = "",
-    var deckId: String = "",
-    var author: String = "",
-    var uId: String = "",
-    var cards: List<List<String>> = ArrayList()
-) : Serializable  {
-
-    constructor() : this("","","","",ArrayList())
+    @SerialName("title") var title: String = "",
+    @SerialName("deckId") var deckId: String = "",
+    @SerialName("author") var author: String = "",
+    @SerialName("uId") var uId: String = "",
+    @SerialName("cards") var cards: List<List<String>> = ArrayList()
+) {
+    constructor() : this("", "", "", "", ArrayList())
 }
 
 

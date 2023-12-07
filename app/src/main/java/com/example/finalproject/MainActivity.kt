@@ -1,6 +1,7 @@
 package com.example.finalproject
 
 import android.os.Bundle
+import android.provider.ContactsContract.Data
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -15,14 +16,14 @@ import com.google.firebase.database.getValue
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var datebaseReference : FirebaseDatabase
+    lateinit var datebaseReference : DatabaseReference
     lateinit var mAuth : FirebaseAuth
     private val allDecks = ArrayList<Deck>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        datebaseReference = FirebaseDatabase.getInstance();
+        datebaseReference = FirebaseDatabase.getInstance().getReference("Accounts");
         mAuth = FirebaseAuth.getInstance();
 
 
