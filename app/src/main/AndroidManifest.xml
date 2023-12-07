@@ -15,12 +15,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".create_deck_popup"
-            android:exported="false" />
-        <activity
-            android:name=".activity_create_deck"
-            android:exported="false" />
-        <activity
             android:name=".CreateDeck"
             android:exported="false" />
         <activity

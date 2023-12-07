@@ -7,7 +7,7 @@ data class Deck(
     var deckId: String = "",
     var author: String = "",
     var uId: String = "",
-    var cards: MutableList<List<String>>? = ArrayList()
+    var cards: List<List<String>> = ArrayList()
 ) : Serializable  {
 
     constructor() : this("","","","",ArrayList())
