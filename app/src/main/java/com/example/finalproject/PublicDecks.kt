@@ -1,54 +1,103 @@
 package com.example.finalproject
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.ListView
 import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.firestore
 
 class PublicDecks : AppCompatActivity(), View.OnClickListener {
 
+    var db = Firebase.firestore
     lateinit var databaseReference : DatabaseReference
     lateinit var mAuth : FirebaseAuth
-    lateinit var lvDecks : ListView
-    val allDecks: ArrayList<Deck> = ArrayList()
-    val myDeckKeys: ArrayList<String> = ArrayList()
-    val keyedDecks: MutableMap<String, Deck> = HashMap()
-    val personalDecks: ArrayList<Deck> = ArrayList()
-
-
+/*    private lateinit var recyclerView : RecyclerView
+    private lateinit var adapter: MyAdapter*/
+    private lateinit var addDecks : ImageView
+    private lateinit var accName : TextView
+    private lateinit var logout : TextView
+    private lateinit var viewDecks : RecyclerView
+    private lateinit var publicDecks : TextView
+    private lateinit var svDecks : SearchView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_public_decks)
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Accounts")
+        Log.i("Logs", db.toString())
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Decks")
         mAuth = FirebaseAuth.getInstance()
 
-        var svDecks : SearchView = findViewById(R.id.svSearchPublic)
-        var myDecks : TextView = findViewById(R.id.tvMyDecks)
-        var publicDecks : TextView = findViewById(R.id.tvPublicDecks)
-        var addDecks : ImageView = findViewById(R.id.abPlusPublic)
-        var logout : TextView = findViewById(R.id.tvLogout)
-        var viewDecks : ListView = findViewById(R.id.lvDecksPublic)
+        svDecks = findViewById(R.id.svSearchPublic)
+        accName = findViewById(R.id.tvAccName)
+        publicDecks = findViewById(R.id.tvPublicDecks)
+        addDecks = findViewById(R.id.abPlusPublic)
+        logout = findViewById(R.id.tvLogout)
+        viewDecks = findViewById(R.id.lvDecksPublic)
 
-        myDecks.setOnClickListener(this)
-        addDecks.setOnClickListener(this)
-        publicDecks.setOnClickListener(this)
-        logout.setOnClickListener(this)
+        logout.setOnClickListener{
+            val intent = Intent(this,Login::class.java)
+            startActivity(intent)
+        }
+
+        addDecks.setOnClickListener{
+            val intent =Intent(this, AddCards::class.java)
+            startActivity(intent)
+        }
+
+
+        /*val cards : ArrayList<Card> = ArrayList();
+
+        db.collection("Cards")
+            *//*.whereEqualTo("username","Dref")*//*
+            .get()
+            .addOnSuccessListener { documents ->
+            for (document in documents){
+                var username : String? = document.data.get("username").toString()
+                var front : String? = document.data.get("front").toString()
+                var back : String? = document.data.get("back").toString()
+                *//*Log.i("Logs", document.data.toString())*//*
+
+                val card : Card = Card(username, front, back)
+                cards.add(card)
+
+            }
+                Log.i("CARDS", cards.toString())
+            recyclerView = findViewById(R.id.lvDecksPublic)
+            recyclerView.layoutManager = LinearLayoutManager(this)
+
+            //Initializes an instance of MyAdapter and sets it as the RecyclerView's adapter
+            adapter = MyAdapter(cards)
+            recyclerView.adapter = adapter
+
+        } .addOnFailureListener { exception ->
+            Log.w(TAG, "Hello", exception)
+        }
+
+
     }
 
     override fun onClick(v : View?) {
-        TODO("Not yet implemented")
-    }
+
+            TODO("Not yet implemented")
+        }
 
     interface OnGetDataListener {
         fun onSuccess(dataSnapshot: DataSnapshot?)
         fun onFailure()
+    }*/
+
+    }
+    override fun onClick(p0: View?) {
+        TODO("Not yet implemented")
     }
 }

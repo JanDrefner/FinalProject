@@ -21,10 +21,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/svSearchPublic"
         app:layout_constraintEnd_toStartOf="@+id/abPlusPublic"
-        app:layout_constraintStart_toEndOf="@+id/tvMyDecks"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/tvAccName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lvDecksPublic"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -38,15 +39,15 @@
         app:layout_constraintTop_toBottomOf="@+id/svSearchPublic" />
 
     <TextView
-        android:id="@+id/tvMyDecks"
+        android:id="@+id/tvAccName"
         android:layout_width="0dp"
         android:layout_height="51dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="20dp"
-        android:text="My Decks"
+        android:text="Account"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/svSearchPublic"
         app:layout_constraintEnd_toStartOf="@+id/tvPublicDecks"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +64,7 @@
         app:layout_constraintBottom_toTopOf="@+id/lvDecksPublic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMyDecks" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAccName" />
 
     <TextView
         android:id="@+id/tvLogout"
@@ -88,6 +89,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/plus" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

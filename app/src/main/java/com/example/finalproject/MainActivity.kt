@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
                     val cards = ds.child("cards").getValue<MutableList<List<String>>>()
                     val did = ds.child("deckId").getValue(String::class.java)
 
-                    val thisDeck = Deck(did.toString(),uid.toString(),title.toString(),author.toString(),listOf<List<String>>())
-                    allDecks.add(thisDeck)
+                    /*val thisDeck = Deck(did.toString(),uid.toString(),title.toString(),author.toString(),listOf<List<String>>())
+                    allDecks.add(thisDeck)*/
                 }
 
                 listener.onSuccess(dataSnapshot)

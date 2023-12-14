@@ -6,55 +6,106 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import java.util.*
+import java.util.Date
 
-class AddCards : AppCompatActivity(), View.OnClickListener {
+class AddCards : AppCompatActivity(){
 
-    var deckId : String = ""
+/*    var deckId : String = ""
     var username : String = ""
     private val deck = Deck()
-    private val cards: MutableList<List<String>> = mutableListOf()
-    private lateinit var txtFront: TextView
-    private lateinit var txtBack: TextView
-    private lateinit var txtDone: TextView
-    private lateinit var txtAddAnother: TextView
-    private lateinit var edtTitle: EditText
+    private val cards: MutableList<List<String>> = mutableListOf()*/
+    private lateinit var txtSave: TextView
+    private lateinit var txtCreate: TextView
     private lateinit var edtFront: EditText
     private lateinit var edtBack: EditText
     private lateinit var imgSave: ImageView
     private lateinit var imgAdd: ImageView
+    private lateinit var edtAddTitle: EditText
 
+    private lateinit var databaseReference : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_cards)
 
-        var txtFront : TextView = findViewById(R.id.txtFront)
-        var txtBack : TextView = findViewById(R.id.txtBack)
-        var txtDone : TextView = findViewById(R.id.txtDone)
-        var txtAddAnother : TextView = findViewById(R.id.txtAddAnother)
-        var edtBack : EditText = findViewById(R.id.edtBack)
-        var edtFront : EditText = findViewById(R.id.edtFront)
-        var edtAddTitle : EditText = findViewById(R.id.edtAddTitle)
-        var imgSave : ImageView = findViewById(R.id.imgSave)
-        var imgAdd : ImageView = findViewById(R.id.imgAdd)
-        
-        txtAddAnother.setOnClickListener(this);
-        imgAdd.setOnClickListener(this);
-        imgSave.setOnClickListener(this);
-        txtDone.setOnClickListener(this);
+        txtSave = findViewById(R.id.txtDone)
+        txtCreate = findViewById(R.id.txtCreate)
+        edtBack = findViewById(R.id.edtBack)
+        edtFront = findViewById(R.id.edtFront)
+        edtAddTitle = findViewById(R.id.edtAddTitle)
+        imgSave = findViewById(R.id.imgSave)
+        imgAdd = findViewById(R.id.imgAdd)
 
-        val bundle = intent.extras
+        databaseReference = FirebaseDatabase.getInstance().getReference("Cards")
+
+        imgSave.setOnClickListener {
+            val intent = Intent(this,PublicDecks::class.java)
+            startActivity(intent)
+        }
+
+        txtSave.setOnClickListener {
+            val intent = Intent(this,PublicDecks::class.java)
+            startActivity(intent)
+        }
+
+        txtCreate.setOnClickListener {
+            saveCards();
+        }
+
+        imgAdd.setOnClickListener {
+            saveCards();
+        }
+    }
+        /*val bundle = intent.extras
         if (bundle != null) {
 
         } else {
             val date = Date()
             deckId = (date.time).toString()
             deckId = deckId.substring(deckId.length-9)
+        }*/
+
+
+    private fun saveCards(){
+        //Get Values
+        val front = edtFront.text.toString()
+        val back = edtBack.text.toString()
+        val title = edtAddTitle.text.toString()
+
+        if(front.isEmpty()){
+            edtFront.error = "Please enter Front Value!"
         }
+        else if(back.isEmpty()){
+            edtBack.error = "Please enter Back Value!"
+        }
+        else if(title.isEmpty()){
+            edtAddTitle.error = "Please enter Title!"
+        }  else {
+            val cardId = databaseReference.push().key!!
+
+            val cards = Cards(cardId, front, back, title)
+
+            databaseReference.child(cardId).setValue(cards)
+                .addOnCompleteListener{
+
+                    Toast.makeText(this, "Card Created Successfully", Toast.LENGTH_SHORT).show()
+                    edtFront.text.clear()
+                    edtBack.text.clear()
+                    edtAddTitle.text.clear()
+
+                } .addOnFailureListener{ err ->
+
+                    Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
+
+                }
+        }
+
+
     }
-    override fun onClick(v : View) {
+
+    /*override fun onClick(v : View) {
         when(v.id){
             R.id.imgAdd,
             R.id.txtAddAnother -> {
@@ -93,6 +144,6 @@ class AddCards : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-    }
+    }*/
 }
 
