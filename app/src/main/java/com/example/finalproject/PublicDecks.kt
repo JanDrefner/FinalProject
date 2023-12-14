@@ -2,47 +2,45 @@ package com.example.finalproject
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
+import com.example.finalproject.adapter.CardAdapter
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.firestore
+import com.google.firebase.database.ValueEventListener
 
 class PublicDecks : AppCompatActivity(), View.OnClickListener {
 
-    var db = Firebase.firestore
     lateinit var databaseReference : DatabaseReference
-    lateinit var mAuth : FirebaseAuth
-/*    private lateinit var recyclerView : RecyclerView
-    private lateinit var adapter: MyAdapter*/
+    private lateinit var decksRecyclerView : RecyclerView
+    private lateinit var tvLoadingData : TextView
+    private lateinit var cardList: ArrayList<Cards>
     private lateinit var addDecks : ImageView
-    private lateinit var accName : TextView
     private lateinit var logout : TextView
     private lateinit var viewDecks : RecyclerView
-    private lateinit var publicDecks : TextView
-    private lateinit var svDecks : SearchView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_public_decks)
 
-        Log.i("Logs", db.toString())
+        decksRecyclerView = findViewById(R.id.rvDecksPublic)
+        decksRecyclerView.layoutManager = LinearLayoutManager(this)
+        decksRecyclerView.hasFixedSize()
+        tvLoadingData = findViewById(R.id.tvLoadingData)
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Decks")
-        mAuth = FirebaseAuth.getInstance()
+        cardList = arrayListOf<Cards>()
 
-        svDecks = findViewById(R.id.svSearchPublic)
-        accName = findViewById(R.id.tvAccName)
-        publicDecks = findViewById(R.id.tvPublicDecks)
+        getCardsData()
+
         addDecks = findViewById(R.id.abPlusPublic)
         logout = findViewById(R.id.tvLogout)
-        viewDecks = findViewById(R.id.lvDecksPublic)
+        viewDecks = findViewById(R.id.rvDecksPublic)
 
         logout.setOnClickListener{
             val intent = Intent(this,Login::class.java)
@@ -53,9 +51,43 @@ class PublicDecks : AppCompatActivity(), View.OnClickListener {
             val intent =Intent(this, AddCards::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun getCardsData(){
+        decksRecyclerView.visibility = View.GONE
+        tvLoadingData.visibility = View.VISIBLE
+        databaseReference = FirebaseDatabase.getInstance().getReference("Cards")
+        databaseReference.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                cardList.clear()
+                if(snapshot.exists()){
+                    for(cardSnap in snapshot.children){
+                        val cardData = cardSnap.getValue(Cards::class.java)
+                        cardList.add(cardData!!)
+                    }
+                    val cAdapter = CardAdapter(cardList)
+                    decksRecyclerView.adapter = cAdapter
+
+                    decksRecyclerView.visibility = View.VISIBLE
+                    tvLoadingData.visibility = View.GONE
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+    override fun onClick(p0: View?) {
+        TODO("Not yet implemented")
+    }
+}
 
 
-        /*val cards : ArrayList<Card> = ArrayList();
+
+
+/*val cards : ArrayList<Card> = ArrayList();
 
         db.collection("Cards")
             *//*.whereEqualTo("username","Dref")*//*
@@ -86,18 +118,7 @@ class PublicDecks : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    override fun onClick(v : View?) {
-
-            TODO("Not yet implemented")
-        }
-
     interface OnGetDataListener {
         fun onSuccess(dataSnapshot: DataSnapshot?)
         fun onFailure()
     }*/
-
-    }
-    override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
-    }
-}
