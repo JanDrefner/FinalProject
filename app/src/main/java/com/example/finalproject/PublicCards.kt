@@ -15,19 +15,19 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class PublicDecks : AppCompatActivity(), View.OnClickListener {
+class PublicCards : AppCompatActivity(), View.OnClickListener {
 
     lateinit var databaseReference : DatabaseReference
     private lateinit var decksRecyclerView : RecyclerView
     private lateinit var tvLoadingData : TextView
+    private lateinit var logout : TextView
     private lateinit var cardList: ArrayList<Cards>
     private lateinit var addDecks : ImageView
-    private lateinit var logout : TextView
     private lateinit var viewDecks : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_public_decks)
+        setContentView(R.layout.activity_public_cards)
 
         decksRecyclerView = findViewById(R.id.rvDecksPublic)
         decksRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -52,7 +52,6 @@ class PublicDecks : AppCompatActivity(), View.OnClickListener {
             startActivity(intent)
         }
     }
-
     private fun getCardsData(){
         decksRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
@@ -67,6 +66,18 @@ class PublicDecks : AppCompatActivity(), View.OnClickListener {
                     }
                     val cAdapter = CardAdapter(cardList)
                     decksRecyclerView.adapter = cAdapter
+
+                    cAdapter.setOnItemClickListener(object : CardAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@PublicCards, ViewCard::class.java)
+                            //put extras
+                            intent.putExtra("cardId", cardList[position].cardId)
+                            intent.putExtra("front", cardList[position].front)
+                            intent.putExtra("back", cardList[position].back)
+                            intent.putExtra("title", cardList[position].title)
+                            startActivity(intent)
+                        }
+                    })
 
                     decksRecyclerView.visibility = View.VISIBLE
                     tvLoadingData.visibility = View.GONE
@@ -83,42 +94,3 @@ class PublicDecks : AppCompatActivity(), View.OnClickListener {
         TODO("Not yet implemented")
     }
 }
-
-
-
-
-/*val cards : ArrayList<Card> = ArrayList();
-
-        db.collection("Cards")
-            *//*.whereEqualTo("username","Dref")*//*
-            .get()
-            .addOnSuccessListener { documents ->
-            for (document in documents){
-                var username : String? = document.data.get("username").toString()
-                var front : String? = document.data.get("front").toString()
-                var back : String? = document.data.get("back").toString()
-                *//*Log.i("Logs", document.data.toString())*//*
-
-                val card : Card = Card(username, front, back)
-                cards.add(card)
-
-            }
-                Log.i("CARDS", cards.toString())
-            recyclerView = findViewById(R.id.lvDecksPublic)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-
-            //Initializes an instance of MyAdapter and sets it as the RecyclerView's adapter
-            adapter = MyAdapter(cards)
-            recyclerView.adapter = adapter
-
-        } .addOnFailureListener { exception ->
-            Log.w(TAG, "Hello", exception)
-        }
-
-
-    }
-
-    interface OnGetDataListener {
-        fun onSuccess(dataSnapshot: DataSnapshot?)
-        fun onFailure()
-    }*/

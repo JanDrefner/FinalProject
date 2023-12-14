@@ -6,24 +6,7 @@
     android:layout_height="match_parent"
     android:textAlignment="center"
     android:background="@drawable/bg2"
-    tools:context=".PublicDecks">
-
-    <TextView
-        android:id="@+id/tvPublicDecks"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
-        android:text="Public Decks"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/svSearchPublic"
-        app:layout_constraintEnd_toStartOf="@+id/abPlusPublic"
-        app:layout_constraintStart_toEndOf="@+id/tvAccName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+    tools:context=".PublicCards">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDecksPublic"
@@ -40,17 +23,19 @@
         app:layout_constraintTop_toBottomOf="@+id/svSearchPublic" />
 
     <TextView
-        android:id="@+id/tvAccName"
-        android:layout_width="0dp"
-        android:layout_height="51dp"
+        android:id="@+id/tvPC"
+        android:layout_width="296dp"
+        android:layout_height="42dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginBottom="20dp"
-        android:text="Account"
+        android:text="CARDS"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/svSearchPublic"
-        app:layout_constraintEnd_toStartOf="@+id/tvPublicDecks"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,7 +64,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rvDecksPublic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAccName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPC" />
 
     <TextView
         android:id="@+id/tvLogout"

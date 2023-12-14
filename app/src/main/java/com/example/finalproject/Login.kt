@@ -1,12 +1,10 @@
 package com.example.finalproject
 
-import android.accounts.Account
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
@@ -94,7 +92,7 @@ class Login : AppCompatActivity() {
                         toastMsg(applicationContext, "Welcome Back, ${user.email}!")
 
                         Log.i("Redirect_Debug", "Redirecting to PublicDecks activity")
-                        startActivity(Intent(this@Login, PublicDecks::class.java))
+                        startActivity(Intent(this@Login, PublicCards::class.java))
                     } else {
                         toastMsg(applicationContext, "New User Welcome!")
 

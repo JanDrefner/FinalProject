@@ -2,13 +2,10 @@ package com.example.finalproject
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import java.util.Date
 
 class AddCards : AppCompatActivity(){
 
@@ -41,12 +38,12 @@ class AddCards : AppCompatActivity(){
         databaseReference = FirebaseDatabase.getInstance().getReference("Cards")
 
         imgSave.setOnClickListener {
-            val intent = Intent(this,PublicDecks::class.java)
+            val intent = Intent(this,PublicCards::class.java)
             startActivity(intent)
         }
 
         txtSave.setOnClickListener {
-            val intent = Intent(this,PublicDecks::class.java)
+            val intent = Intent(this,PublicCards::class.java)
             startActivity(intent)
         }
 
