@@ -81,20 +81,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAccName" />
 
-    <TextView
-        android:id="@+id/tvLogout"
-        android:layout_width="100dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="Logout"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvDecksPublic" />
-
     <ImageView
         android:id="@+id/abPlusPublic"
         android:layout_width="23dp"
@@ -104,5 +90,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/plus" />
+
+    <LinearLayout
+        android:layout_width="116dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="261dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvDecksPublic">
+
+        <ImageView
+            android:id="@+id/imgSignout"
+            android:layout_width="27dp"
+            android:layout_height="28dp"
+
+            app:srcCompat="@drawable/signout" />
+
+        <TextView
+            android:id="@+id/tvLogout"
+            android:layout_width="67dp"
+            android:layout_height="22dp"
+            android:text="Logout"
+            android:textAlignment="center"
+            android:textSize="16sp"
+
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

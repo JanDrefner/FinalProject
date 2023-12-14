@@ -1,5 +1,6 @@
 package com.example.finalproject
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -23,8 +24,10 @@ class PublicDecks : AppCompatActivity(), View.OnClickListener {
     private lateinit var cardList: ArrayList<Cards>
     private lateinit var addDecks : ImageView
     private lateinit var logout : TextView
+    private lateinit var logout2 : ImageView
     private lateinit var viewDecks : RecyclerView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_public_decks)
@@ -40,12 +43,18 @@ class PublicDecks : AppCompatActivity(), View.OnClickListener {
 
         addDecks = findViewById(R.id.abPlusPublic)
         logout = findViewById(R.id.tvLogout)
+        logout2 = findViewById(R.id.imgSignout)
         viewDecks = findViewById(R.id.rvDecksPublic)
 
         logout.setOnClickListener{
             val intent = Intent(this,Login::class.java)
             startActivity(intent)
         }
+        logout2.setOnClickListener{
+            val intent = Intent(this,Login::class.java)
+            startActivity(intent)
+        }
+
 
         addDecks.setOnClickListener{
             val intent =Intent(this, AddCards::class.java)

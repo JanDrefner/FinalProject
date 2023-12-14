@@ -1,14 +1,12 @@
 package com.example.finalproject
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import java.util.Date
 
 class AddCards : AppCompatActivity(){
 
@@ -16,7 +14,7 @@ class AddCards : AppCompatActivity(){
     var username : String = ""
     private val deck = Deck()
     private val cards: MutableList<List<String>> = mutableListOf()*/
-    private lateinit var txtSave: TextView
+    private lateinit var txtExit: TextView
     private lateinit var txtCreate: TextView
     private lateinit var edtFront: EditText
     private lateinit var edtBack: EditText
@@ -26,17 +24,18 @@ class AddCards : AppCompatActivity(){
 
     private lateinit var databaseReference : DatabaseReference
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_cards)
 
-        txtSave = findViewById(R.id.txtDone)
+        txtExit = findViewById(R.id.txtExit)
         txtCreate = findViewById(R.id.txtCreate)
         edtBack = findViewById(R.id.edtBack)
         edtFront = findViewById(R.id.edtFront)
         edtAddTitle = findViewById(R.id.edtAddTitle)
-        imgSave = findViewById(R.id.imgSave)
-        imgAdd = findViewById(R.id.imgAdd)
+        imgSave = findViewById(R.id.imgExit)
+        imgAdd = findViewById(R.id.imgSignout)
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Cards")
 
@@ -45,7 +44,7 @@ class AddCards : AppCompatActivity(){
             startActivity(intent)
         }
 
-        txtSave.setOnClickListener {
+        txtExit.setOnClickListener {
             val intent = Intent(this,PublicDecks::class.java)
             startActivity(intent)
         }

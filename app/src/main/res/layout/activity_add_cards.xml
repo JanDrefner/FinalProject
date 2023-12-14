@@ -8,144 +8,152 @@
     android:background="@drawable/bg2"
     tools:context=".AddCards">
 
-    <EditText
-        android:id="@+id/edtBack"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#000000"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/imgAdd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBack" />
 
-    <EditText
-        android:id="@+id/edtFront"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#000000"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/txtBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFront" />
-
-    <TextView
-        android:id="@+id/txtFront"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/bungee_shade"
-        android:text="Front"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtFront"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="134dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtAddTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-    <TextView
-        android:id="@+id/txtBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="157dp"
-        android:fontFamily="@font/bungee_shade"
-        android:text="Back"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtFront" />
+        <ImageView
+            android:id="@+id/imgSignout"
+            android:layout_width="27dp"
+            android:layout_height="33dp"
 
-    <TextView
-        android:id="@+id/txtDone"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginBottom="134dp"
-        android:text="Exit"
-        android:textColor="#000000"
-        android:textSize="20sp"
+            app:srcCompat="@drawable/add" />
+
+        <TextView
+            android:id="@+id/txtCreate"
+            android:layout_width="80dp"
+            android:layout_height="36dp"
+            android:text="Create"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="133dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgSave"
-        app:layout_constraintTop_toBottomOf="@+id/txtCreate" />
-
-    <TextView
-        android:id="@+id/txtCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="127dp"
-        android:text="Create"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtDone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgAdd"
-        app:layout_constraintTop_toBottomOf="@+id/edtBack" />
-
-    <ImageView
-        android:id="@+id/imgAdd"
-        android:layout_width="40dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgSave"
-        app:layout_constraintEnd_toStartOf="@+id/txtCreate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtBack"
-        app:srcCompat="@drawable/add" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageView
+            android:id="@+id/imgExit"
+            android:layout_width="31dp"
+            android:layout_height="32dp"
+
+            app:srcCompat="@drawable/exit" />
+
+        <TextView
+            android:id="@+id/txtExit"
+            android:layout_width="52dp"
+            android:layout_height="30dp"
+            android:text="Exit"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/edtAddTitle"
-        android:layout_width="345dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="34dp"
+        android:layout_width="361dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="22dp"
         android:backgroundTint="#000000"
+
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Title of the Flashcard"
+        android:hint="Title of the Flashcard"
         android:textColor="#000000"
-
         android:textColorLink="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/txtFront"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <ImageView
-        android:id="@+id/imgSave"
-        android:layout_width="34dp"
-        android:layout_height="37dp"
-
-        android:layout_marginStart="135dp"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="373dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="143dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtDone"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgAdd"
-        app:srcCompat="@drawable/save" />
+        app:layout_constraintTop_toBottomOf="@+id/edtAddTitle">
+
+        <TextView
+            android:id="@+id/txtFront"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee_shade"
+            android:text="Front"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/edtBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="373dp"
+        android:layout_height="173dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/txtBack"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:fontFamily="@font/bungee_shade"
+            android:text="Back"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/edtFront"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
