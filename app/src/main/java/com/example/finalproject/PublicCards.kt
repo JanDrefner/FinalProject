@@ -23,6 +23,7 @@ class PublicCards : AppCompatActivity(), View.OnClickListener {
     private lateinit var logout : TextView
     private lateinit var cardList: ArrayList<Cards>
     private lateinit var addDecks : ImageView
+    private lateinit var imgLogout : ImageView
     private lateinit var viewDecks : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +42,14 @@ class PublicCards : AppCompatActivity(), View.OnClickListener {
         addDecks = findViewById(R.id.abPlusPublic)
         logout = findViewById(R.id.tvLogout)
         viewDecks = findViewById(R.id.rvDecksPublic)
+        imgLogout = findViewById(R.id.imgLogout)
 
         logout.setOnClickListener{
+            val intent = Intent(this,Login::class.java)
+            startActivity(intent)
+        }
+
+        imgLogout.setOnClickListener{
             val intent = Intent(this,Login::class.java)
             startActivity(intent)
         }
