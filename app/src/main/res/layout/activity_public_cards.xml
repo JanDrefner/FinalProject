@@ -10,31 +10,30 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDecksPublic"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="398dp"
+        android:layout_height="499dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="50dp"
-        tools:listitem="@layout/list_item"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svSearchPublic" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPC"
+        tools:listitem="@layout/list_item" />
+
 
     <TextView
         android:id="@+id/tvPC"
         android:layout_width="296dp"
         android:layout_height="42dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
         android:text="CARDS"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/svSearchPublic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,19 +51,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <SearchView
-        android:id="@+id/svSearchPublic"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="13dp"
-        android:queryHint="Search"
-        app:layout_constraintBottom_toTopOf="@+id/rvDecksPublic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPC" />
 
     <ImageView
         android:id="@+id/abPlusPublic"
