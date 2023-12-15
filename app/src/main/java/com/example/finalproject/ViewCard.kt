@@ -100,6 +100,7 @@ class ViewCard : AppCompatActivity() {
         val edtBack = cDialogView.findViewById<EditText>(R.id.edtUpdateBack)
         val edtTitle = cDialogView.findViewById<EditText>(R.id.edtUpdateAddTitle)
         val btnUpdate = cDialogView.findViewById<Button>(R.id.btnUpdateData)
+        val btnBack = cDialogView.findViewById<Button>(R.id.btnUpdateBack)
 
         edtFront.setText(intent.getStringExtra("front").toString())
         edtBack.setText(intent.getStringExtra("back").toString())
@@ -126,6 +127,10 @@ class ViewCard : AppCompatActivity() {
             tvTitle.text = edtTitle.text.toString()
 
             alertDialog.dismiss()
+        }
+
+        btnBack.setOnClickListener {
+            alertDialog.dismiss() // Dismiss the current dialog
         }
     }
     private fun updateCardData(

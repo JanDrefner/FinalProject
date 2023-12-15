@@ -67,4 +67,14 @@
         android:fontFamily="@font/encode_sans_medium"
         android:text="UPDATE" />
 
+    <Button
+        android:id="@+id/btnUpdateBack"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#000000"
+        android:gravity="center"
+        android:text="BACK"
+        android:textColorLink="#020202" />
+
 </LinearLayout>
