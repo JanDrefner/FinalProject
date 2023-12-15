@@ -11,7 +11,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import org.w3c.dom.Text
 
 class Register : AppCompatActivity() {
 
@@ -20,6 +19,7 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        var validatePass = ValidatePass()
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Accounts")
         mAuth = FirebaseAuth.getInstance()
@@ -29,6 +29,7 @@ class Register : AppCompatActivity() {
         var editPassword : TextInputEditText = findViewById(R.id.edtPassword1)
         var confirmPassword : TextInputEditText = findViewById(R.id.edtPassword2)
         var buttonRegister : Button = findViewById(R.id.btnRegister)
+        var buttonBackLogin : Button = findViewById(R.id.btnBackLogin)
 
         buttonRegister.setOnClickListener() {
             try {
@@ -37,25 +38,32 @@ class Register : AppCompatActivity() {
                 val password = editPassword.text.toString()
                 val confirmPassword = confirmPassword.text.toString()
 
-                if (username.isEmpty() && email.isEmpty() && password.isEmpty() && confirmPassword.isEmpty()){
+                if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                     toastMsg(this, "Fields should not be Empty")
-                    if (password != confirmPassword)
-                        toastMsg(this, "Password does not Match!")
-                }else
-                    registerUser (username, email, password)
-
-            }catch (e : Exception){
+                } else if (password != confirmPassword) {
+                    toastMsg(this, "Password does not Match!")
+                } else if (!validatePass.ValidatePassword(password)) {
+                    toastMsg(this, "Password must be 5-12 characters, contain at least one uppercase letter, one digit, and one special character")
+                } else {
+                    registerUser(username, email, password)
+                }
+            } catch (e: Exception) {
                 Log.e("Error_Amado", e.message.toString())
             }
+        }
+
+        buttonBackLogin.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
     }
     private fun registerUser(username:String, email:String, password:String) {
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this){
-            task -> if (task.isSuccessful){
-                toastMsg(this, "Registration Success!")
-                val userUID = mAuth.currentUser?.uid
-                userUID?.let {UID -> UserRegistration(UID, username, email, password)
-                }
+                task -> if (task.isSuccessful){
+            toastMsg(this, "Registration Success!")
+            val userUID = mAuth.currentUser?.uid
+            userUID?.let {UID -> UserRegistration(UID, username, email, password)
+            }
         }else {
             toastMsg(this, "Registration Failed! Try Again")
             Log.e("Error_Amado", task.exception?.message.toString())

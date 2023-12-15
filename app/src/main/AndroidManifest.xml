@@ -18,9 +18,6 @@
             android:name=".ViewCard"
             android:exported="false" />
         <activity
-            android:name=".CreateDeck"
-            android:exported="false" />
-        <activity
             android:name=".PublicCards"
             android:exported="false" />
         <activity
